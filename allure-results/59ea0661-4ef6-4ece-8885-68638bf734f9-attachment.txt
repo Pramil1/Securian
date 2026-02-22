@@ -1,0 +1,2 @@
+element not interactable: WebDriverError: element not interactable
+  (Session info: chrome=145.0.7632.76) when running "element/f.FF567FCD25655A6E568DD249F1099D5A.d.0F07E621FDC12ABA27FB43F51E51DF5C.e.62/click" with method "POST"
