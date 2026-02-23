@@ -14,7 +14,6 @@ export default class SecurianPage {
     return $('button[aria-label="Close"]');
     }
 
-    // Form Fields (Update selectors based on actual DOM)
     public get currentAge() {
         return $('#current-age');
     }
@@ -67,7 +66,7 @@ export default class SecurianPage {
         return $('//a[contains(text(),"Adjust default values")]');
     }
 
-    // Default calculator values
+    
     get otherIncome() {
         return $('#additional-income');
     }

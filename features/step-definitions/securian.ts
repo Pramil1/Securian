@@ -22,7 +22,7 @@ When(
     'I update the default calculator fields with SSB {string} and PRI inflation {string}',
     async (ssb: string, pri: string) => {
         await securianPage.updateDefaultCalculatorFields(ssb, pri); 
-        //await securianPage.updateDefaultCalculatorValues();
+        
     }
 );
 
