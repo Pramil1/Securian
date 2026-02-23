@@ -23,7 +23,7 @@ export const config: WebdriverIO.Config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './features/**/retirement.feature'
+        './features/**/securian.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -130,7 +130,7 @@ export const config: WebdriverIO.Config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./src/support/hooks.ts', './features/step-definitions/retirement.ts'],
+        require: ['./src/support/hooks.ts', './features/step-definitions/securian.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
