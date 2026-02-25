@@ -1,6 +1,30 @@
 import { browser } from '@wdio/globals'
 import { $ } from '@wdio/globals'
 import { jsClick } from '../step-definitions/utility';
+import testData from '../data/testData.json';
+
+export interface RetirementCalculatorData {
+    currentAge?: string;
+    retirementAge?: string;
+    currentAnnualIncome?: string;
+    spouseAnnualIncome?: string;
+    currentSavings?: string;
+    currentAnnualSavings?: string;
+    savingsIncreaseRate?: string;
+    socialSecurityOverride?: string;
+}
+
+export interface DefaultCalculatorData {
+    otherIncome?: string;
+    retirementYears?: string;
+    inflationRate?: string;
+    incomeReplacementRate?: string;
+    preRetirementReturn?: string;
+    postRetirementReturn?: string;
+}
+
+export const DEFAULT_RETIREMENT_DATA: RetirementCalculatorData = testData.retirementCalculator as RetirementCalculatorData;
+export const DEFAULT_CALCULATOR_ADJUSTMENTS: DefaultCalculatorData = testData.calculatorAdjustments as DefaultCalculatorData;
 
 export default class SecurianPage {
 
@@ -149,35 +173,37 @@ export default class SecurianPage {
 
     
 
-    async fillForm() {
+    async fillForm(data: RetirementCalculatorData = DEFAULT_RETIREMENT_DATA) {
+        const mergedData = { ...DEFAULT_RETIREMENT_DATA, ...data };
+        
         const currentAge = this.currentAge;
-        await this.setCurrencyInput(currentAge, '40');
+        await this.setCurrencyInput(currentAge, mergedData.currentAge!);
 
         const retirementAge = this.retirementAge;
-        await this.setCurrencyInput(retirementAge, '68');
+        await this.setCurrencyInput(retirementAge, mergedData.retirementAge!);
 
         const cannualIncome = this.cannualIncome;
-        await this.setCurrencyInput(cannualIncome, '100000');   // now it works
+        await this.setCurrencyInput(cannualIncome, mergedData.currentAnnualIncome!);   // now it works
         await browser.pause(3000);
 
         const sannualIncome = this.sannualIncome;
-        await this.setCurrencyInput(sannualIncome, '75000');   // now it works
+        await this.setCurrencyInput(sannualIncome, mergedData.spouseAnnualIncome!);   // now it works
         await browser.pause(3000);
 
         const currentrSavings = this.currentrSavings;
-        await this.setCurrencyInput(currentrSavings, '500000');
+        await this.setCurrencyInput(currentrSavings, mergedData.currentSavings!);
         await browser.pause(3000);
         
         const currenteachSavings = this.currenteachSavings;
-        await this.setCurrencyInput(currenteachSavings, '10');
+        await this.setCurrencyInput(currenteachSavings, mergedData.currentAnnualSavings!);
         await browser.pause(3000);
         
         const savingIncrease = this.savingIncrease;
-        await this.setCurrencyInput(savingIncrease, '25');
+        await this.setCurrencyInput(savingIncrease, mergedData.savingsIncreaseRate!);
         await browser.pause(3000);
 
         const ssoAmount = this.ssoAmount;
-        await this.setCurrencyInput(ssoAmount, '4000');
+        await this.setCurrencyInput(ssoAmount, mergedData.socialSecurityOverride!);
         await browser.pause(3000);
 
 
@@ -210,17 +236,18 @@ export default class SecurianPage {
         await this.updateDefaultCalculatorValues();
     }
 
-    async updateDefaultCalculatorValues() {
+    async updateDefaultCalculatorValues(data: DefaultCalculatorData = DEFAULT_CALCULATOR_ADJUSTMENTS) {
+        const mergedData = { ...DEFAULT_CALCULATOR_ADJUSTMENTS, ...data };
 
         const otherIncome = this.otherIncome;
-        await this.setCurrencyInput(otherIncome, '1200'); 
+        await this.setCurrencyInput(otherIncome, mergedData.otherIncome!); 
         await browser.keys('Tab');
         const val = await otherIncome.getValue();
         console.log('Other income value:', val);  
         await browser.pause(500);
 
         const retirementYears = this.retirementYears;
-        await this.setCurrencyInput(retirementYears, '25');   // now it works
+        await this.setCurrencyInput(retirementYears, mergedData.retirementYears!);   // now it works
         await browser.pause(500);
         
 
@@ -230,19 +257,19 @@ export default class SecurianPage {
         }
           
          const inflationRate = this.inflationRate;
-        await this.setCurrencyInput(inflationRate, '3');   // now it works
+        await this.setCurrencyInput(inflationRate, mergedData.inflationRate!);   // now it works
         await browser.pause(3000);
 
         const incomeReplacementRate = this.incomeReplacementRate;
-        await this.setCurrencyInput(incomeReplacementRate, '80');   // now it works
+        await this.setCurrencyInput(incomeReplacementRate, mergedData.incomeReplacementRate!);   // now it works
         await browser.pause(3000);
 
        const preRetirementReturn = this.preRetirementReturn;
-        await this.setCurrencyInput(preRetirementReturn, '7');   // now it works
+        await this.setCurrencyInput(preRetirementReturn, mergedData.preRetirementReturn!);   // now it works
         //await browser.pause(3000);
 
         const postRetirementReturn = this.postRetirementReturn;
-        await this.setCurrencyInput(postRetirementReturn, '5');   // now it works
+        await this.setCurrencyInput(postRetirementReturn, mergedData.postRetirementReturn!);   // now it works
         //await browser.pause(3000);
 
 
