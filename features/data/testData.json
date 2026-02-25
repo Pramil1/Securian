@@ -1,0 +1,39 @@
+{
+  "retirementCalculator": {
+    "currentAge": "40",
+    "retirementAge": "68",
+    "currentAnnualIncome": "100000",
+    "spouseAnnualIncome": "75000",
+    "currentSavings": "500000",
+    "currentAnnualSavings": "10",
+    "savingsIncreaseRate": "25",
+    "socialSecurityOverride": "4000"
+  },
+  "calculatorAdjustments": {
+    "otherIncome": "1200",
+    "retirementYears": "25",
+    "inflationRate": "3",
+    "incomeReplacementRate": "80",
+    "preRetirementReturn": "7",
+    "postRetirementReturn": "5"
+  },
+  "scenarios": {
+    "earlyRetirement": {
+      "currentAge": "35",
+      "retirementAge": "60",
+      "currentAnnualIncome": "80000",
+      "savingsIncreaseRate": "10"
+    },
+    "lateRetirement": {
+      "currentAge": "45",
+      "retirementAge": "75",
+      "currentAnnualIncome": "150000",
+      "savingsIncreaseRate": "35"
+    },
+    "highEarner": {
+      "currentAnnualIncome": "250000",
+      "spouseAnnualIncome": "200000",
+      "currentSavings": "1500000"
+    }
+  }
+}
