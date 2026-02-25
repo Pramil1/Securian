@@ -16,24 +16,6 @@
     "incomeReplacementRate": "80",
     "preRetirementReturn": "7",
     "postRetirementReturn": "5"
-  },
-  "scenarios": {
-    "earlyRetirement": {
-      "currentAge": "35",
-      "retirementAge": "60",
-      "currentAnnualIncome": "80000",
-      "savingsIncreaseRate": "10"
-    },
-    "lateRetirement": {
-      "currentAge": "45",
-      "retirementAge": "75",
-      "currentAnnualIncome": "150000",
-      "savingsIncreaseRate": "35"
-    },
-    "highEarner": {
-      "currentAnnualIncome": "250000",
-      "spouseAnnualIncome": "200000",
-      "currentSavings": "1500000"
-    }
   }
+  
 }
