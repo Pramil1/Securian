@@ -1,2 +1,0 @@
-# Securian
-Securian Assignment

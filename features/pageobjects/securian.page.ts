@@ -143,17 +143,6 @@ export default class SecurianPage {
         }
     }
 
- 
-
-   /* private async setInput(element: ChainablePromiseElement, value: string) {
-    
-        await element.waitForDisplayed({ timeout: 5000 });
-        await element.scrollIntoView();
-        await element.click();              // IMPORTANT for input mask
-        await element.clearValue();         // clear default $0
-        await element.setValue(value);
-    }*/
-
     private async setCurrencyInput(element: ChainablePromiseElement, value: string) {
         const el = await element;
         await el.waitForExist({ timeout: 15000 });
@@ -183,11 +172,11 @@ export default class SecurianPage {
         await this.setCurrencyInput(retirementAge, mergedData.retirementAge!);
 
         const cannualIncome = this.cannualIncome;
-        await this.setCurrencyInput(cannualIncome, mergedData.currentAnnualIncome!);   // now it works
+        await this.setCurrencyInput(cannualIncome, mergedData.currentAnnualIncome!);
         await browser.pause(3000);
 
         const sannualIncome = this.sannualIncome;
-        await this.setCurrencyInput(sannualIncome, mergedData.spouseAnnualIncome!);   // now it works
+        await this.setCurrencyInput(sannualIncome, mergedData.spouseAnnualIncome!);   
         await browser.pause(3000);
 
         const currentrSavings = this.currentrSavings;
@@ -211,11 +200,7 @@ export default class SecurianPage {
 
     async clickAdjustDefaultValues() {
         await this.adjustDefaultsLink.waitForClickable({ timeout: 5000 });
-        await this.adjustDefaultsLink.click();
-
-         //await jsClick(this.calculateBtn);
-        //await this.resultsSection.waitForDisplayed({ timeout: 30000 });
-        
+        await this.adjustDefaultsLink.click();  
     }
 
     public async updateDefaultCalculatorFields(ssb: string, pri: string) {
@@ -247,7 +232,7 @@ export default class SecurianPage {
         await browser.pause(500);
 
         const retirementYears = this.retirementYears;
-        await this.setCurrencyInput(retirementYears, mergedData.retirementYears!);   // now it works
+        await this.setCurrencyInput(retirementYears, mergedData.retirementYears!);
         await browser.pause(500);
         
 
@@ -257,32 +242,25 @@ export default class SecurianPage {
         }
           
          const inflationRate = this.inflationRate;
-        await this.setCurrencyInput(inflationRate, mergedData.inflationRate!);   // now it works
+        await this.setCurrencyInput(inflationRate, mergedData.inflationRate!); 
         await browser.pause(3000);
 
         const incomeReplacementRate = this.incomeReplacementRate;
-        await this.setCurrencyInput(incomeReplacementRate, mergedData.incomeReplacementRate!);   // now it works
+        await this.setCurrencyInput(incomeReplacementRate, mergedData.incomeReplacementRate!); 
         await browser.pause(3000);
 
        const preRetirementReturn = this.preRetirementReturn;
-        await this.setCurrencyInput(preRetirementReturn, mergedData.preRetirementReturn!);   // now it works
-        //await browser.pause(3000);
+        await this.setCurrencyInput(preRetirementReturn, mergedData.preRetirementReturn!); 
+        
 
         const postRetirementReturn = this.postRetirementReturn;
-        await this.setCurrencyInput(postRetirementReturn, mergedData.postRetirementReturn!);   // now it works
-        //await browser.pause(3000);
-
+        await this.setCurrencyInput(postRetirementReturn, mergedData.postRetirementReturn!); 
 
         await jsClick(this.saveChangesBtn);
-        await browser.pause(500); // allow animation to complete
+        await browser.pause(500);
     }
 
-
-
     async submitForm() {
-        //await this.calculateBtn.click();
-        //await browser.pause(30000);
-
         await jsClick(this.calculateBtn);
         await browser.pause(30000);
         await this.resultsSection.waitForDisplayed({ timeout: 60000 });
@@ -290,10 +268,7 @@ export default class SecurianPage {
 
       async isResultsDisplayed(): Promise<boolean> {
         await this.resultsSection.waitForDisplayed({ timeout: 10000 });
-        return this.resultsSection.isDisplayed();
-
-        
-        
+        return this.resultsSection.isDisplayed(); 
     }
 }
 

@@ -14,7 +14,6 @@ When('I close the popup if displayed', async () => {
 
 When('I click on Adjust default values link', async () => {
     await securianPage.clickAdjustDefaultValues();
-
 });
 
 
@@ -36,5 +35,5 @@ When('I submit the form', async () => {
 
 Then('I should see the retirement results', async () => {
     await expect(securianPage.resultsSection).toBeDisplayed();
-    browser.pause(30000); // allow time to visually confirm results
+    browser.pause(30000);
 });
